@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>org.gnushark.GNUShark</id>
+  <name>GNU/Shark</name>
+  <summary>Hub de drivers, otimizações e ferramentas de jogos</summary>
+  <developer_name>Gabriel Ruas Santos</developer_name>
+  <project_license>GPL-3.0-or-later</project_license>
+  <url type="homepage">https://github.com/gabriel-ruas-santos/gnu-shark</url>
+  <description>
+    <p>Uma UI GTK simples para instalar drivers, habilitar otimizações e configurar ferramentas essenciais de jogos em distros baseadas em Arch.</p>
+  </description>
+  <launchable type="desktop-id">org.gnushark.GNUShark.desktop</launchable>
+  <provides>
+    <id>gnushark</id>
+  </provides>
+  <releases>
+    <release version="1.0.0" date="2025-09-07">
+      <description>
+        <p>Primeiro release estável com detecção de GPU/CPU, fluxo multilib assistido, suporte a Flathub, ZRAM, GameMode, Wine+Bottles, Steam, Heroic e mais.</p>
+      </description>
+    </release>
+  </releases>
+</component>

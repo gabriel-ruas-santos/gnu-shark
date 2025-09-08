@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+.dist/
+build/
+dist/
+.env
+.venv
+*.log
+# artefatos do makepkg
+pkg/
+src/
+*.pkg.tar.*
+EOF
+
