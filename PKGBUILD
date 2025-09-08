@@ -1,4 +1,4 @@
-# Maintainer: Seu Nome <seu@email>
+# Maintainer: Gabriel Ruas Santos <gabrielruass@protonmail.com>
 pkgname=gnushark
 pkgver=1.0.0
 pkgrel=1
