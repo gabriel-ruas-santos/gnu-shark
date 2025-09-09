@@ -17,7 +17,7 @@ install:
 	install -Dm644 packaging/polkit/org.gnushark.runroot.policy "$(DESTDIR)/usr/share/polkit-1/actions/org.gnushark.runroot.policy"
 	install -Dm755 packaging/polkit/gnushark-runroot "$(DESTDIR)/usr/libexec/gnushark-runroot"
 	@if [ -d icons ]; then \
-	  install -Dm644 icons/org.gnushark.GNUShark.svg "$(DESTDIR)/usr/share/icons/hicolor/scalable/apps/org.gnushark.GNUShark.svg" || true; \
+	  install -Dm644 icons/org.gnushark.GNUShark.svg "$(DESTDIR)/usr/share/icons/hicolor/scalable/apps/org.gnushark.GNUShark.png" || true; \
 	  find icons -type f -name "*.png" -o -name "*.svg" | while read -r f; do \
 	    base=$$(basename "$$f"); \
 	    install -Dm644 "$$f" "$(DESTDIR)/usr/share/gnushark/icons/$$base"; \
