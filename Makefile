@@ -33,7 +33,7 @@ uninstall:
 	rm -rf "$(DESTDIR)/usr/share/gnushark"
 
 lint:
-	python -m pyflakes gnushark.py || true
+	python -m pyflakes gnu-shark.py || true
 
 run:
 	python ./gnushark.py

@@ -19,7 +19,10 @@ optdepends=(
   'zenity: diálogos gráficos adicionais'
 )
 source=(
-  "$pkgname-$pkgver.tar.gz::${url}/archive/refs/tags/v${pkgver}.tar.gz"
+  "gnu-shark-${pkgver}.tar.gz::https://github.com/gabriel-ruas-santos/gnu-shark/archive/refs/tags/v${pkgver}.tar.gz"
+  "org.gnushark.GNUShark.desktop"
+  "org.gnushark.runroot.policy"
+  "gnushark-runroot.sh"
 )
 sha256sums=('SKIP')
 
