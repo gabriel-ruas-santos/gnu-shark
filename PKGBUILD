@@ -40,8 +40,8 @@ package() {
   # ícones (se existir pasta icons/)
   if [ -d "icons" ]; then
     # ícone principal
-    install -Dm644 "icons/org.gnushark.GNUShark.svg" \
-      "${pkgdir}/usr/share/icons/hicolor/scalable/apps/org.gnushark.GNUShark.svg" || true
+    install -Dm644 "icons/org.gnushark.GNUShark.png" \
+      "${pkgdir}/usr/share/icons/hicolor/apps/org.gnushark.GNUShark.png" || true
     # demais ícones custom do app (se houver)
     find icons -type f -name "*.png" -o -name "*.svg" | while read -r f; do
       base="$(basename "$f")"
