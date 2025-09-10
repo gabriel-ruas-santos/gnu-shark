@@ -32,6 +32,15 @@ build() {
 }
 
 package() {
+# App icon in hicolor theme
+install -Dm644 "icons/org.gnushark.GNUShark.svg" \
+  "$pkgdir/usr/share/icons/hicolor/scalable/apps/org.gnushark.GNUShark.svg" || true
+for s in 256x256 128x128 96x96 64x64 48x48 32x32 24x24 22x22 16x16; do
+  if [[ -f "icons/$s/apps/org.gnushark.GNUShark.png" ]]; then
+    install -Dm644 "icons/$s/apps/org.gnushark.GNUShark.png" \
+      "$pkgdir/usr/share/icons/hicolor/$s/apps/org.gnushark.GNUShark.png"
+  fi
+done
   cd "${srcdir}/${pkgname}-${pkgver}"
 
   # binário principal (script python)
@@ -41,11 +50,11 @@ package() {
   if [ -d "icons" ]; then
     # ícone principal
     install -Dm644 "icons/org.gnushark.GNUShark.png" \
-      "${pkgdir}/usr/share/icons/hicolor/apps/org.gnushark.GNUShark.png" || true
+      "${pkgdir}/usr/share/icons/org.gnushark.GNUShark.png" || true
     # demais ícones custom do app (se houver)
     find icons -type f -name "*.png" -o -name "*.svg" | while read -r f; do
       base="$(basename "$f")"
-      install -Dm644 "$f" "${pkgdir}/usr/share/gnushark/icons/${base}"
+      install -Dm644 "$f" "${pkgdir}/usr/share/gnushark/icons/48x48/apps/${base}"
     done
   fi
 
@@ -63,4 +72,21 @@ package() {
 
   # exemplo de licença (ajuste conforme o arquivo de LICENSE do repositório)
   install -Dm644 "LICENSE" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+
+            # Install .desktop (generated here, avoids needing a separate file)
+            install -Dm644 /dev/stdin "$pkgdir/usr/share/applications/org.gnushark.GNUShark.desktop" << 'EOF'
+[Desktop Entry]
+Name=GNUShark
+GenericName=System Tweaks for Gaming
+Comment=GPU/driver helpers and gaming tweaks
+Exec=env GNUSK_ICONS_DIR=/usr/share/gnushark/icons gnushark
+TryExec=gnushark
+Icon=org.gnushark.GNUShark
+Terminal=false
+Type=Application
+Categories=System;Settings;Utility;
+Keywords=GPU;Drivers;Gaming;Steam;Wine;Proton;
+StartupNotify=true
+EOF
 }
+
